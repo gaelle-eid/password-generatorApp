@@ -1,0 +1,216 @@
+/*This allows browsers to download and use your custom font, even if it’s not installed on the user’s computer.*/
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('./font/JetBrainsMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('./font/JetBrainsMono-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/*--------------------------------------------------------------------*/
+:root {
+  --background-color: #0f0f0f;
+  --container-color: #1e1e26;
+  --input-bg: #0f0f15;
+  --accent: #b8ffb8;
+  --text-color: #c4c4c4;
+  --checkbox-color: #b8ffb8;
+  --strength-bar: yellow;
+  --bar-bg: #444;
+  --generate-bg: #a0ffa0;
+  --generate-bg-hover: #8df98d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body { 
+  font-family: 'JetBrains Mono', monospace;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/*---------------------------------------------------HEADER---------------------------------------------------*/
+.passwordGenerator_text {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-weight: 400; 
+}
+
+.container {
+  background-color: var(--container-color);
+  padding: 2rem;
+  border-radius: 0.6rem; 
+  width: 22rem;        
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.password-display {
+  background-color: var(--input-bg);
+  padding: 1rem;
+  font-size: 1.1rem;
+  color: var(--accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 22rem;          
+}
+
+.password-input {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.1rem;
+  width: 100%;
+  outline: none;
+}
+
+.copy-icon {
+  width: 1rem;      
+  height: 1rem;    
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+/*---------------------------------------------------OPTIONS---------------------------------------------------*/
+.controls {
+  background-color: var(--container-color);
+  padding: 2rem;
+  width: 22rem;         
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.char-length {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.length-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.length-label label {
+  color: white;
+  font-size: 0.8rem; 
+}
+
+.char-length input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.length {
+  border-radius: 0; /*ask why its not working*/
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.8rem; 
+}
+
+.options input[type="checkbox"] {
+  accent-color: var(--checkbox-color);
+}
+
+/*---------------------------------------------------LAST SECTION---------------------------------------------------*/
+.strength-value {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.strength-section {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1rem;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.strength-label {
+  font-weight: bold;
+  color: white;
+}
+
+.strength-bars {
+  display: flex;
+  gap: 0.25rem;         
+}
+
+.strength-bars .bar {
+  width: 0.625rem;      
+  height: 1.25rem;      
+  background-color: var(--bar-bg);
+  border: 1px solid #ffffff;  
+}
+
+.strength-bars .bar.active {
+  background-color: var(--strength-bar);
+}
+
+.generate-btn {
+  font-family: 'JetBrains Mono', monospace; 
+  background-color: var(--generate-bg);
+  border: none;
+  padding: 0.8rem;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.generate-btn:hover {
+  background-color: var(--generate-bg-hover);
+}
+
+.arrowRight-icon {
+  width: 1rem;        
+  height: 1rem;         
+}
+
+.char-value {
+  font-size: 0.8rem;
+  color: var(--generate-bg);
+}
