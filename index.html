@@ -13,7 +13,7 @@
     
     <h1 class="passwordGenerator_text">Password Generator</h1>
     <!--------------------------------PASSWORD------------------------->
-    <form id="password">
+    <form>
     <div class="password-display">
       <input type="text"  id="password-input" class="password-input" value="PTx1f5DaFX" /> <!-- by default aanda hal value-->
       <img src="./assets/icon-copy.svg" alt="Copy" class="copy-icon" />
@@ -27,12 +27,14 @@
           <label for="length" class="length-label-text">Character Length</label>
           <span id="char-value" class="char-value">10</span>
         </div>
+        <form>
         <input type="range" id="length" class="length" min="0" max="20" value="10" />
         <!--type range: input is a slider.-->
         <!--min value 0,max value 20,default starting value 10-->
-
+        </form>
       </div>
 
+      <form>
       <div class="options">
         <label
           ><input type="checkbox" id="checkbox_upperCase" class="checkbox_upperCase" checked /> Include
@@ -51,7 +53,7 @@
           Symbols</label
         >
       </div>
-
+      </form>
       <!-------------------------------LAST SECTION------------------------------>
       <div  class="strength-section">
         <span>STRENGTH</span>
