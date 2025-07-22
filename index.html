@@ -5,26 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Password Generator</title>
     <link rel="stylesheet" href="./styles.css" />
+    <script src="./javascript.js" defer></script>
   </head>
 
 
   <body>
-
+    
     <h1 class="passwordGenerator_text">Password Generator</h1>
     <!--------------------------------PASSWORD------------------------->
+    <form id="password">
     <div class="password-display">
       <input type="text"  class="password-input" value="PTx1f5DaFX" /> <!-- by default aanda hal value-->
       <img src="./assets/icon-copy.svg" alt="Copy" class="copy-icon" />
     </div>
+    </form>
 
     <!---------------------------------OPTIONSS SECTION--------------------------------- -->
     <div class="controls">
       <div class="char-length">
         <div class="length-label">
           <label for="length" class="length-label-text">Character Length</label>
-          <span class="char-value">10</span>
+          <span id="char-value" class="char-value">10</span>
         </div>
-        <input type="range" class="length" min="0" max="20" value="10" />
+        <input type="range" id="length" class="length" min="0" max="20" value="10" />
         <!--type range: input is a slider.-->
         <!--min value 0,max value 20,default starting value 10-->
 
@@ -32,38 +35,38 @@
 
       <div class="options">
         <label
-          ><input type="checkbox" class="checkbox_upperCase" checked /> Include
+          ><input type="checkbox" id="checkbox_upperCase" class="checkbox_upperCase" checked /> Include
           Uppercase Letters</label
         >
         <label
-          ><input type="checkbox" class="checkbox_lowerCase" checked /> Include
+          ><input type="checkbox" id="checkbox_lowerCase" class="checkbox_lowerCase" checked /> Include
           Lowercase Letters</label
         ><!--checked by default laean ketbeta-->
         <label
-          ><input type="checkbox" class="checkbox_numbers" /> Include
+          ><input type="checkbox" id="checkbox_numbers" class="checkbox_numbers" /> Include
           Numbers</label
         >
         <label
-          ><input type="checkbox" class="checkbox_symbols" /> Include
+          ><input type="checkbox"  id="checkbox_symbols" class="checkbox_symbols" /> Include
           Symbols</label
         >
       </div>
 
       <!-------------------------------LAST SECTION------------------------------>
-      <div class="strength-section">
+      <div  class="strength-section">
         <span>STRENGTH</span>
         <div class="strength-value">
           <span class="strength-label">MEDIUM</span>
-          <div class="strength-bars">
-            <span class="bar active"></span>
-            <span class="bar active"></span>
-            <span class="bar active"></span>
-            <span class="bar"></span>
+          <div  id="strength-bars" class="strength-bars">
+            <span id="first-bar" class="bar active"></span>
+            <span id="second-bar" class="bar active"></span>
+            <span id="third-bar" class="bar active"></span>
+            <span id="fourth-bar" class="bar"></span>
           </div>
         </div>
       </div>
 
-      <button class="generate-btn">
+      <button id="generate-btn" class="generate-btn">
         Generate
         <img
           src="./assets/icon-arrow-right.svg"
@@ -72,5 +75,6 @@
         />
       </button>
     </div>
+
   </body>
 </html>
