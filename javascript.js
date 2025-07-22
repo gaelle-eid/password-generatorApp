@@ -6,7 +6,7 @@ let upperCase=document.getElementById("checkbox_upperCase");
 let lowerCase=document.getElementById("checkbox_lowerCase");
 let numbers=document.getElementById("checkbox_numbers");
 let symbols=document.getElementById("checkbox_symbols");
-
+let copy=document.getElementById("copy-icon")
 
 
 let button=document.getElementById("generate-btn");
@@ -42,6 +42,7 @@ sliderValue.textContent=slider.value;
         return "Select option(s)"
 
     let result=""; //rjeena eemlna second variable la eedr sayi3 l awle fia bi tariea random w length mhadad
+    //ex: passwordChars ABC123 , result C2A1B
     for(let i=0; i<length; i++){
         const randomIndex=Math.floor(Math.random()*passwordChars.length);
         result+=passwordChars[randomIndex];
@@ -54,5 +55,22 @@ button.addEventListener("click", (e) => {
 password.value=generatePassword();
   });
 
- 
- 
+
+//------------------------------------------COPY SECTION----------------------
+//TUTORIAL
+copy.addEventListener("click", (e) => {
+  if (password.value.length > 0) {
+    navigator.clipboard.writeText(password.value);
+    
+    copy.innerText = "copy";      
+    copy.title = "Copied";
+
+    setTimeout(() => {
+      //copy.innerHTML = "Content_copy"; fye ghayr l soura 
+      copy.title = "";
+      copy.innerText = "copy";     
+    }, 1500); 
+  }
+});
+
+
