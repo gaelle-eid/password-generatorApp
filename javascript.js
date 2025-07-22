@@ -7,7 +7,8 @@ let lowerCase=document.getElementById("checkbox_lowerCase");
 let numbers=document.getElementById("checkbox_numbers");
 let symbols=document.getElementById("checkbox_symbols");
 let copy=document.getElementById("copy-icon")
-
+const bars = document.querySelectorAll(".bar");
+const strengthLabel = document.querySelector(".strength-label");
 
 let button=document.getElementById("generate-btn");
 
@@ -19,7 +20,7 @@ slider.addEventListener("input", (e) => {
 sliderValue.textContent=slider.value; 
   });
 
-  //--------------------------------BUTTON SECTION--------------------------------
+  //--------------------------------GENERATE PASSWORD-------------------------------
 
   
  function  generatePassword(){
@@ -44,6 +45,7 @@ sliderValue.textContent=slider.value;
     let result=""; //rjeena eemlna second variable la eedr sayi3 l awle fia bi tariea random w length mhadad
     //ex: passwordChars ABC123 , result C2A1B
     for(let i=0; i<length; i++){
+        //TUTORIAL
         const randomIndex=Math.floor(Math.random()*passwordChars.length);
         result+=passwordChars[randomIndex];
     }
@@ -51,9 +53,44 @@ sliderValue.textContent=slider.value;
     return result;
  }
 
+ //-----------------------------------STRENGTH------------------------------
+ function updateStrengthBars() {
+  let strength = 0; //initialize
+
+  if (upperCase.checked) strength++;
+  if (lowerCase.checked) strength++;
+  if (numbers.checked) strength++;
+  if (symbols.checked) strength++;
+
+  // Reset la wala whde tebea yellow, for each btoetaa aa kel bar
+  bars.forEach((bar) => bar.classList.remove("active"));
+  for (let i = 0; i < strength; i++) {
+    bars[i].classList.add("active"); //classList pour modifier l active state tbaa l bars bl CSS
+  }
+
+  switch (strength) {
+    case 0:
+    case 1:
+      strengthLabel.textContent = "TOO WEAK!"; //strength===0 aw ===1
+      break;
+    case 2:
+      strengthLabel.textContent = "WEAK";
+      break;
+    case 3:
+      strengthLabel.textContent = "MEDIUM";
+      break;
+    case 4:
+      strengthLabel.textContent = "STRONG";
+      break;
+  }
+}
+
+//--------------------------------------------button-------------------------
 button.addEventListener("click", (e) => {
 password.value=generatePassword();
-  });
+updateStrengthBars();
+});
+
 
 
 //------------------------------------------COPY SECTION----------------------
